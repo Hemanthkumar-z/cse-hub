@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSE Hub</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+
+body{background:#0f172a;color:#fff}
+
+/* NAVBAR */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 40px;
+  background:rgba(0,0,0,0.7);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  backdrop-filter:blur(10px);
+}
+
+nav h1{color:#38bdf8}
+
+nav a{
+  color:#fff;
+  margin:0 15px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+nav a:hover{color:#38bdf8}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+.hero h2{
+  font-size:3rem;
+  animation:fadeIn 2s ease-in-out;
+}
+
+.hero p{
+  margin-top:10px;
+  color:#cbd5f5;
+}
+
+/* SECTIONS */
+.section{
+  padding:60px 40px;
+}
+
+.section h2{
+  text-align:center;
+  margin-bottom:30px;
+  color:#38bdf8;
+}
+
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+.card{
+  background:#1e293b;
+  padding:20px;
+  border-radius:15px;
+  transition:0.3s;
+  transform:translateY(50px);
+  opacity:0;
+}
+
+.card.show{
+  transform:translateY(0);
+  opacity:1;
+}
+
+.card:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #38bdf8;
+}
+
+.card a{
+  display:inline-block;
+  margin-top:10px;
+  color:#38bdf8;
+  text-decoration:none;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <h1>CSE HUB</h1>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#careers">Careers</a>
+    <a href="#resources">Resources</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <h2>Welcome to CSE Hub 🚀</h2>
+  <p>Your complete roadmap, careers & coding resources in one place</p>
+</section>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <h2>CSE Roadmap</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>DSA</h3>
+      <a href="https://www.geeksforgeeks.org/data-structures/" target="_blank">Start Learning</a>
+    </div>
+    <div class="card">
+      <h3>Web Dev</h3>
+      <a href="https://www.geeksforgeeks.org/web-development/" target="_blank">Start Learning</a>
+    </div>
+    <div class="card">
+      <h3>Operating Systems</h3>
+      <a href="https://www.geeksforgeeks.org/operating-systems/" target="_blank">Start Learning</a>
+    </div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="section" id="careers">
+  <h2>Career Paths</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Software Engineer</h3>
+      <a href="https://www.geeksforgeeks.org/software-engineering/" target="_blank">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Data Scientist</h3>
+      <a href="https://www.geeksforgeeks.org/data-science/" target="_blank">Explore</a>
+    </div>
+    <div class="card">
+      <h3>Cyber Security</h3>
+      <a href="https://www.geeksforgeeks.org/cyber-security/" target="_blank">Explore</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section" id="resources">
+  <h2>Programming Resources</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>C Language</h3>
+      <a href="https://www.geeksforgeeks.org/c-programming-language/" target="_blank">Learn</a>
+    </div>
+    <div class="card">
+      <h3>Java</h3>
+      <a href="https://www.geeksforgeeks.org/java/" target="_blank">Learn</a>
+    </div>
+    <div class="card">
+      <h3>Python</h3>
+      <a href="https://www.geeksforgeeks.org/python-programming-language/" target="_blank">Learn</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Scroll animation
+const cards = document.querySelectorAll('.card');
+
+window.addEventListener('scroll', () => {
+  const trigger = window.innerHeight * 0.85;
+  cards.forEach(card => {
+    const top = card.getBoundingClientRect().top;
+    if(top < trigger){
+      card.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
